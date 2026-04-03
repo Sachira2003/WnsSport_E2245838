@@ -1,0 +1,112 @@
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.3s ease-in-out;
+    background-color: rgba(15, 23, 42, 0.9);
+    /* brand-navy with opacity */
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo Section */
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #fbbf24;
+    /* brand-gold */
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0f172a;
+    /* brand-navy */
+}
+
+.logo-text-white {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.025em;
+}
+
+.logo-text-gold {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #fbbf24;
+    /* brand-gold */
+}
+
+/* Navigation Links */
+.navbar-links {
+    /* display: none;
+    Hidden on mobile */
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 35rem;
+}
+
+/* @media (min-width: 768px) {
+    .navbar-links {
+        display: flex;
+    }
+} */
+
+.navbar-links a {
+    color: #e2e8f0;
+    /* slate-200 */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+/*Highlighted text from the cursor*/
+.navbar-links a:hover {
+    color: #fbbf24;
+}
+
+/* Login Action */
+.login-btn {
+    background-color: #fbbf24;
+    color: #0f172a;
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    align-items: center;
+    transition: all 0.3s;
+    display: flex;
+    gap: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.2);
+    margin-top: 10px;
+}
+
+/*Login button hover effect*/
+.login-btn:hover {
+    background-color: #fcd34d;
+    /* yellow-300 */
+    transform: translateY(-1px);
+    /*move the button up*/
+}
