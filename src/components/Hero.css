@@ -1,0 +1,155 @@
+.hero {
+    /* Use a placeholder image from Unsplash for the track background */
+    background-image:
+        linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)),
+        url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Calculate height: Full screen minus the navbar (approx 80px) */
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10rem;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    /* Space between elements */
+    animation: fadeIn 1s ease-out;
+    /* Simple fade-in effect when page loads */
+}
+
+/* --- The Top Badge --- */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--gold-accent);
+    background-color: rgba(255, 193, 7, 0.1);
+    /* Very transparent gold */
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* --- Typography --- */
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.text-gold {
+    color: var(--gold-accent);
+}
+
+.hero-description {
+    color: #9CA3AF;
+    /* Light gray text */
+    font-size: 1.15rem;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 700px;
+}
+
+/* --- Buttons --- */
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* The Yellow "Enter Portal" Button */
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--gold-accent);
+    color: #111827;
+    /* Dark text */
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--gold-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+}
+
+/* The Outline "Explore Features" Button */
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Simple fade in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive Design for Mobile Phones --- */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
