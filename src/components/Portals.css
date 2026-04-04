@@ -1,0 +1,334 @@
+:root {
+    --portals-bg: #0f172a;
+    /* brand-navy */
+    --portals-gold: #fbbf24;
+    /* brand-gold */
+    --portals-blue: #1e3a8a;
+    /* brand-blue */
+}
+
+/* --- Section Layout --- */
+.portals-section {
+    padding: 5rem 0;
+    /* py-20 */
+    background-color: var(--portals-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.portals-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: url('https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.portals-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    /* px-6 */
+    position: relative;
+    z-index: 10;
+}
+
+.portals-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    /* gap-12 */
+    align-items: center;
+}
+
+/* --- Graphic Mockup Column --- */
+.portals-graphic-col {
+    order: 2;
+    /* Text appears first on mobile */
+}
+
+.dashboard-mockup {
+    background-color: #1e293b;
+    /* bg-slate-800 */
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    padding: 1rem;
+    /* p-4 */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    /* shadow-2xl */
+    border: 1px solid #334155;
+    /* border-slate-700 */
+    transform: rotate(-2deg);
+    /* -rotate-2 */
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.dashboard-mockup:hover {
+    transform: rotate(0deg);
+    /* Straightens out on hover */
+}
+
+.mac-header {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.mac-dot {
+    width: 0.75rem;
+    /* w-3 */
+    height: 0.75rem;
+    /* h-3 */
+    border-radius: 50%;
+}
+
+.dot-red {
+    background-color: #ef4444;
+}
+
+.dot-yellow {
+    background-color: #eab308;
+}
+
+.dot-green {
+    background-color: #22c55e;
+}
+
+.dashboard-image {
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    width: 100%;
+    object-fit: cover;
+    height: 16rem;
+    /* h-64 */
+    opacity: 0.8;
+    filter: grayscale(100%);
+    mix-blend-mode: screen;
+}
+
+/* --- Text Column --- */
+.portals-text-col {
+    order: 1;
+    /* Appears first on mobile */
+    color: #ffffff;
+}
+
+.portals-subtitle {
+    color: var(--portals-gold);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+}
+
+.portals-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.portals-description {
+    font-family: 'Inter', sans-serif;
+    color: #cbd5e1;
+    /* slate-300 */
+    font-size: 1.125rem;
+    line-height: 1.625;
+    margin-bottom: 2rem;
+}
+
+/* Roles List */
+.roles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* space-y-6 */
+}
+
+.role-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    /* gap-4 */
+}
+
+.role-icon {
+    background-color: rgba(30, 58, 138, 0.3);
+    /* bg-brand-blue/30 */
+    padding: 0.75rem;
+    /* p-3 */
+    border-radius: 0.5rem;
+    /* rounded-lg */
+    color: var(--portals-gold);
+    border: 1px solid var(--portals-blue);
+    font-size: 1.25rem;
+    /* text-xl */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.role-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    /* text-lg */
+    margin: 0 0 0.25rem 0;
+}
+
+.role-content p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    /* text-sm */
+    color: #94a3b8;
+    /* slate-400 */
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --- Media Queries --- */
+@media (min-width: 1024px) {
+    .portals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Reset order for desktop so graphic is on left */
+    .portals-graphic-col {
+        order: 1;
+    }
+
+    .portals-text-col {
+        order: 2;
+    }
+
+    .portals-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* --- CTA Section Styles ---    */
+:root {
+    --cta-bg: #1e3a8a;
+    /* brand-blue */
+    --cta-gold: #fbbf24;
+}
+
+.cta-section {
+    position: relative;
+    padding: 6rem 1.5rem;
+    background-color: var(--cta-bg);
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Background Glow Effects */
+.cta-glow-left,
+.cta-glow-right {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    background-color: var(--cta-gold);
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.cta-glow-left {
+    top: -10rem;
+    left: -10rem;
+}
+
+.cta-glow-right {
+    bottom: -10rem;
+    right: -10rem;
+}
+
+.cta-container {
+    position: relative;
+    z-index: 10;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.cta-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.125rem;
+    color: #bfdbfe;
+    /* blue-200 */
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-cta-primary {
+    background-color: var(--cta-gold);
+    color: #0f172a;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s;
+    box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.3);
+}
+
+.btn-cta-primary:hover {
+    background-color: #fde047;
+    /* yellow-300 */
+    transform: translateY(-4px);
+}
+
+.btn-cta-secondary {
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #ffffff;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+}
+
+.btn-cta-secondary:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 640px) {
+    .cta-actions {
+        flex-direction: row;
+    }
+}

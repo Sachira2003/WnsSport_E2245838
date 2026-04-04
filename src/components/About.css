@@ -1,0 +1,241 @@
+:root {
+    --brand-blue: #1e3a8a;
+    --brand-gold: #fbbf24;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+}
+
+/* --- Section Layout --- */
+.about-section {
+    padding: 6rem 0;
+    /* py-24 */
+    background-color: #ffffff;
+    position: relative;
+}
+
+.about-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    /* px-6 */
+}
+
+.about-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    /* gap-16 equivalent */
+}
+
+/* --- Left Column: Image Styling --- */
+.about-image-column {
+    width: 100%;
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.main-image {
+    width: 100%;
+    border-radius: 1rem;
+    /* rounded-2xl */
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    /* shadow-2xl */
+    position: relative;
+    z-index: 10;
+    display: block;
+}
+
+/* The Gold Square Behind the Image */
+.image-border-offset {
+    position: absolute;
+    bottom: -1.5rem;
+    /* -bottom-6 */
+    right: -1.5rem;
+    /* -right-6 */
+    width: 100%;
+    height: 100%;
+    border: 4px solid var(--brand-gold);
+    border-radius: 1rem;
+    z-index: 0;
+}
+
+/* The Floating "Before" Card */
+.floating-card {
+    position: absolute;
+    left: -2rem;
+    /* -left-8 */
+    top: 25%;
+    /* top-1/4 */
+    background-color: #ffffff;
+    padding: 1rem;
+    /* p-4 */
+    border-radius: 0.75rem;
+    /* rounded-xl */
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    /* shadow-xl */
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* gap-4 */
+}
+
+.floating-icon {
+    width: 3rem;
+    /* w-12 */
+    height: 3rem;
+    /* h-12 */
+    background-color: #fee2e2;
+    /* bg-red-100 */
+    color: #dc2626;
+    /* text-red-600 */
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    /* text-xl */
+}
+
+.floating-text {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+}
+
+.floating-label {
+    font-size: 0.75rem;
+    /* text-xs */
+    color: var(--slate-500);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.floating-title {
+    font-weight: 700;
+    color: var(--slate-800);
+}
+
+/* --- Right Column: Text & Features --- */
+.about-text-column {
+    width: 100%;
+}
+
+.section-subtitle {
+    color: var(--brand-blue);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    /* tracking-widest */
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    /* text-sm */
+    margin-bottom: 0.75rem;
+    /* mb-3 */
+}
+
+.section-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.25rem;
+    /* text-4xl fallback */
+    font-weight: 800;
+    /* font-extrabold */
+    color: var(--slate-900);
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+    line-height: 1.2;
+}
+
+.section-description {
+    font-family: 'Inter', sans-serif;
+    color: var(--slate-600);
+    font-size: 1.125rem;
+    /* text-lg */
+    line-height: 1.625;
+    /* leading-relaxed */
+    margin-bottom: 1.5rem;
+    /* mb-6 */
+}
+
+/* Feature List */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* space-y-4 */
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    /* gap-3 */
+}
+
+.feature-icon {
+    color: var(--brand-gold);
+    font-size: 1.25rem;
+    /* text-xl */
+    margin-top: 0.25rem;
+    /* mt-1 */
+}
+
+.feature-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--slate-900);
+    line-height: 1;
+    margin: 0 0 0.25rem 0;
+    /* mb-1 */
+}
+
+.feature-content p {
+    font-family: 'Inter', sans-serif;
+    color: var(--slate-600);
+    font-size: 0.875rem;
+    /* text-sm */
+    margin: 0;
+}
+
+/* --- Media Queries for Desktop --- */
+@media (min-width: 1024px) {
+    .about-grid {
+        flex-direction: row;
+    }
+
+    .about-image-column,
+    .about-text-column {
+        width: 50%;
+        /* lg:w-1/2 */
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        /* Ensures large text on desktop */
+    }
+}
+
+/* --- Fix for Mobile View on Floating Card --- */
+@media (max-width: 640px) {
+    .floating-card {
+        left: 1rem;
+        bottom: -3rem;
+        top: auto;
+    }
+
+    .image-border-offset {
+        display: none;
+        /* Hide border on very small screens to save space */
+    }
+}

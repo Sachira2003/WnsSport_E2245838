@@ -1,132 +1,232 @@
-.hero {
-    /* Use a placeholder image from Unsplash for the track background */
-    background-image:
-        linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)),
+:root {
+    /* You can swap these to your Teal/Green theme if you prefer! */
+    --hero-bg-dark: rgba(15, 23, 42, 0.8);
+    --hero-bg-darker: rgba(15, 23, 42, 0.9);
+    --hero-accent: #fbbf24;
+    --hero-accent-hover: #fde047;
+    /* yellow-300 */
+    --hero-text-muted: #cbd5e1;
+    /* slate-300 */
+}
+
+/* --- Hero Section Container --- */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 8rem;
+    /* pt-32 */
+    padding-bottom: 5rem;
+    /* pb-20 */
+    overflow: hidden;
+
+    /* The Background Image Pattern */
+    background-image: linear-gradient(var(--hero-bg-dark), var(--hero-bg-darker)),
         url('https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-
-    /* Calculate height: Full screen minus the navbar (approx 80px) */
-    min-height: calc(100vh - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10rem;
-    font-family: 'Inter', system-ui, sans-serif;
+    background-attachment: fixed;
 }
 
+.hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+}
+
+/* --- Background Blobs --- */
+.hero-blob {
+    position: absolute;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+}
+
+.blob-top-left {
+    top: 0;
+    left: 0;
+    background: #1e3a8a;
+    opacity: 0.2;
+}
+
+.blob-bottom-right {
+    bottom: 0;
+    right: 0;
+    background: var(--hero-accent);
+    opacity: 0.1;
+}
+
+/* --- Main Content --- */
 .hero-content {
+    max-width: 56rem;
+    /* max-w-4xl */
+    margin: 0 auto;
     text-align: center;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    /* Space between elements */
-    animation: fadeIn 1s ease-out;
-    /* Simple fade-in effect when page loads */
 }
 
-/* --- The Top Badge --- */
 .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: var(--gold-accent);
-    background-color: rgba(255, 193, 7, 0.1);
-    /* Very transparent gold */
-    border: 1px solid rgba(255, 193, 7, 0.3);
-    padding: 0.4rem 1.2rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    background-color: rgba(251, 191, 36, 0.2);
+    color: var(--hero-accent);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(251, 191, 36, 0.3);
 }
 
-/* --- Typography --- */
+.hero-badge i {
+    margin-right: 0.5rem;
+}
+
 .hero-title {
-    font-size: 4.5rem;
+    font-family: 'Outfit', sans-serif;
+    font-size: 3rem;
+    /* Fallback for mobile */
     font-weight: 800;
-    line-height: 1.1;
-    margin: 0;
-    letter-spacing: -1px;
-}
-
-.text-white {
     color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    margin-top: auto;
 }
 
-.text-gold {
-    color: var(--gold-accent);
+.text-gradient {
+    background-image: linear-gradient(to right, var(--hero-accent), #fef08a);
+    /* yellow-200 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .hero-description {
-    color: #9CA3AF;
-    /* Light gray text */
-    font-size: 1.15rem;
-    line-height: 1.6;
-    margin: 0;
-    max-width: 700px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    /* text-xl */
+    color: var(--hero-text-muted);
+    margin: 0 auto 2.5rem auto;
+    max-width: 42rem;
+    /* max-w-2xl */
+    font-weight: 300;
+    line-height: 1.625;
 }
 
 /* --- Buttons --- */
 .hero-actions {
     display: flex;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
 }
 
-/* The Yellow "Enter Portal" Button */
 .btn-primary {
+    background-color: var(--hero-accent);
+    color: #0f172a;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    background-color: var(--gold-accent);
-    color: #111827;
-    /* Dark text */
-    border: none;
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px var(--gold-glow);
+    gap: 0.75rem;
+    transition: all 0.3s;
+    box-shadow: 0 20px 25px -5px rgba(251, 191, 36, 0.3);
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 193, 7, 0.4);
+    background-color: var(--hero-accent-hover);
+    transform: translateY(-4px);
 }
 
-/* The Outline "Explore Features" Button */
+.icon-slide {
+    transition: transform 0.3s;
+}
+
+.btn-primary:hover .icon-slide {
+    transform: translateX(4px);
+}
+
 .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #64748b;
+    /* slate-500 */
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 0.8rem 1.8rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    gap: 0.75rem;
+    transition: all 0.3s;
 }
 
 .btn-secondary:hover {
+    border-color: #ffffff;
     background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Simple fade in animation */
-@keyframes fadeIn {
+/* --- Stats Grid --- */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(51, 65, 85, 0.5);
+    /* border-slate-700/50 */
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.25rem;
+    /* text-4xl */
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.stat-number.text-accent {
+    color: var(--hero-accent);
+}
+
+.stat-label {
+    font-family: 'Inter', sans-serif;
+    color: #94a3b8;
+    /* slate-400 */
+    margin: 0;
+}
+
+/* --- Animations --- */
+.reveal-animate {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.reveal-animate-delayed {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
 
     to {
@@ -135,21 +235,25 @@
     }
 }
 
-/* --- Responsive Design for Mobile Phones --- */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 3rem;
-    }
-
+/* --- Media Queries --- */
+@media (min-width: 640px) {
     .hero-actions {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        padding-top: 12rem;
+        padding-bottom: 8rem;
     }
 
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-        justify-content: center;
+    .hero-title {
+        font-size: 4.5rem;
+        /* md:text-7xl */
+    }
+
+    .hero-stats {
+        grid-template-columns: repeat(4, 1fr);
     }
 }

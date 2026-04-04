@@ -1,12 +1,10 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-
+import React from 'react';
+import Home from './Pages/Home.jsx';
 
 function App() {
   return (
     <>
-      <Navbar />
-      <Hero />
+      <Home />
     </>
 
   );

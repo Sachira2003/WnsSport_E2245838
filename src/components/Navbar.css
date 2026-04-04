@@ -1,112 +1,178 @@
+/* Import the exact fonts from your HTML */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap');
+
+:root {
+    /* You can easily swap these to your Teal/Green theme if desired! */
+    --nav-bg-color: #0f172a;
+    /* brand-navy */
+    --nav-accent: #fbbf24;
+    /* brand-gold */
+    --nav-accent-hover: #fcd34d;
+    /* yellow-300 */
+}
+
+/* --- Base Navbar Styling --- */
 .navbar {
     position: fixed;
+    top: 0;
     width: 100%;
     z-index: 50;
     transition: all 0.3s ease-in-out;
     background-color: rgba(15, 23, 42, 0.9);
-    /* brand-navy with opacity */
+    /* navy with 90% opacity */
     backdrop-filter: blur(12px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
 }
 
 .navbar-container {
     max-width: 1280px;
     margin: 0 auto;
     padding: 1rem 1.5rem;
+    /* py-4 px-6 equivalent */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Logo Section */
-.navbar-logo {
+/* --- Logo Styling --- */
+.navbar-logo-wrapper {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    text-decoration: none;
+    /* space-x-3 */
 }
 
 .logo-icon {
     width: 2.5rem;
     height: 2.5rem;
-    background-color: #fbbf24;
-    /* brand-gold */
+    background-color: var(--nav-accent);
     border-radius: 9999px;
+    /* rounded-full */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #0f172a;
-    /* brand-navy */
+    color: var(--nav-bg-color);
+    font-weight: 700;
+    font-size: 1.25rem;
+    /* text-xl */
 }
 
 .logo-text-white {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 1.5rem;
+    /* text-2xl */
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.025em;
+    /* tracking-tight */
 }
 
-.logo-text-gold {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    color: #fbbf24;
-    /* brand-gold */
+.logo-text-accent {
+    color: var(--nav-accent);
 }
 
-/* Navigation Links */
-.navbar-links {
-    /* display: none;
-    Hidden on mobile */
-    list-style: none;
-    display: flex;
+/* --- Desktop Links --- */
+.navbar-desktop-links {
+    display: none;
+    /* Hidden on mobile by default */
     align-items: center;
     gap: 2rem;
-    margin-left: 35rem;
+    /* space-x-8 */
 }
 
-/* @media (min-width: 768px) {
-    .navbar-links {
-        display: flex;
-    }
-} */
-
-.navbar-links a {
+.navbar-desktop-links a {
     color: #e2e8f0;
-    /* slate-200 */
+    /* text-slate-200 */
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
-/*Highlighted text from the cursor*/
-.navbar-links a:hover {
-    color: #fbbf24;
+.navbar-desktop-links a:hover {
+    color: var(--nav-accent);
 }
 
-/* Login Action */
-.login-btn {
-    background-color: #fbbf24;
-    color: #0f172a;
+/* Login Button Specifics */
+.navbar-desktop-links a.login-btn {
+    background-color: var(--nav-accent);
+    color: var(--nav-bg-color);
     padding: 0.5rem 1.5rem;
+    /* px-6 py-2 */
     border-radius: 9999px;
+    /* rounded-full */
     font-weight: 700;
-    border: none;
-    cursor: pointer;
-    align-items: center;
-    transition: all 0.3s;
     display: flex;
+    align-items: center;
     gap: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.2);
-    margin-top: 10px;
 }
 
-/*Login button hover effect*/
-.login-btn:hover {
-    background-color: #fcd34d;
-    /* yellow-300 */
-    transform: translateY(-1px);
-    /*move the button up*/
+.navbar-desktop-links a.login-btn:hover {
+    background-color: var(--nav-accent-hover);
+    color: var(--nav-bg-color);
+}
+
+/* --- Mobile Menu Button --- */
+.mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.5rem;
+    /* text-2xl */
+    cursor: pointer;
+}
+
+/* --- Mobile Menu Dropdown --- */
+.mobile-menu {
+    display: none;
+    /* Hidden entirely when closed */
+    background-color: var(--nav-bg-color);
+    border-top: 1px solid #334155;
+    /* border-slate-700 */
+    flex-direction: column;
+}
+
+.mobile-menu.open {
+    display: flex;
+    /* Shown when state is true */
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    /* py-3 px-6 */
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-bottom: 1px solid #334155;
+}
+
+.mobile-menu a.mobile-login-link {
+    padding: 1rem 1.5rem;
+    /* py-4 */
+    color: var(--nav-accent);
+    font-weight: 700;
+    background-color: rgba(15, 23, 42, 0.5);
+    /* bg-brand-navy/50 */
+}
+
+/* --- Media Query for Desktop (Replicating md: in Tailwind) --- */
+@media (min-width: 768px) {
+    .navbar-desktop-links {
+        display: flex;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: none !important;
+        /* Forces mobile menu to hide if window is resized */
+    }
 }
