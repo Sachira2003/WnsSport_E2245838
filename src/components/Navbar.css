@@ -19,7 +19,6 @@
     z-index: 50;
     transition: all 0.3s ease-in-out;
     background-color: rgba(15, 23, 42, 0.9);
-    /* navy with 90% opacity */
     backdrop-filter: blur(12px);
     font-family: 'Inter', sans-serif;
 }
@@ -30,20 +29,18 @@
 
 .navbar-container {
     max-width: 1280px;
+    display: flex;
     margin: 0 auto;
     padding: 1rem 1.5rem;
-    /* py-4 px-6 equivalent */
-    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 /* --- Logo Styling --- */
-.navbar-logo-wrapper {
+.navbar-logo {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    /* space-x-3 */
 }
 
 .logo-icon {
@@ -56,19 +53,17 @@
     align-items: center;
     justify-content: center;
     color: var(--nav-bg-color);
-    font-weight: 700;
-    font-size: 1.25rem;
-    /* text-xl */
+    /* font-weight: 700;
+    font-size: 1.25rem; */
+
 }
 
 .logo-text-white {
     font-family: 'Outfit', sans-serif;
     font-size: 1.5rem;
-    /* text-2xl */
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.025em;
-    /* tracking-tight */
 }
 
 .logo-text-accent {
@@ -81,12 +76,10 @@
     /* Hidden on mobile by default */
     align-items: center;
     gap: 2rem;
-    /* space-x-8 */
 }
 
 .navbar-desktop-links a {
     color: #e2e8f0;
-    /* text-slate-200 */
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
@@ -101,9 +94,7 @@
     background-color: var(--nav-accent);
     color: var(--nav-bg-color);
     padding: 0.5rem 1.5rem;
-    /* px-6 py-2 */
     border-radius: 9999px;
-    /* rounded-full */
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -127,8 +118,15 @@
     cursor: pointer;
 }
 
+
+
+
+
+
+
+/* -------------------------Not work-------------------------------- */
 /* --- Mobile Menu Dropdown --- */
-.mobile-menu {
+* .mobile-menu {
     display: none;
     /* Hidden entirely when closed */
     background-color: var(--nav-bg-color);

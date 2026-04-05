@@ -21,7 +21,7 @@ const Login = () => {
     };
 
     return (
-        <div className="login-wrapper">
+        <div className="login-wrapper" id="login">
             {/* Dark overlay */}
             <div className="login-overlay"></div>
 
