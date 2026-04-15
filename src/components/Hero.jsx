@@ -81,6 +81,7 @@
 
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
@@ -96,8 +97,8 @@ const Hero = () => {
                 <div className="hero-content reveal-animate">
                     <span className="hero-badge">
                         <svg viewBox="0 0 24 19" fill="currentColor" width="15" height="15">
-//                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-//                     </svg> Walasmulla National School
+                            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg> Walasmulla National School
                     </span>
 
                     <h1 className="hero-title">
@@ -108,18 +109,18 @@ const Hero = () => {
                     <p className="hero-description">
                         Digitalizing school athletics. Manage teams, track attendance, monitor player performance, and schedule tournaments from one centralized, intelligent platform.
                     </p>
-
+        
                     <div className="hero-actions">
-                        <a href="/login" className="btn-primary group">
+                        <a href="/login" className="btn-primary">
                             Enter Portal <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
-//                             <line x1="5" y1="12" x2="19" y2="12"></line>
-//                             <polyline points="12 5 19 12 12 19"></polyline>
-//                         </svg>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
                         </a>
                         <a href="#features" className="btn-secondary">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-//                             <path d="M8 5v14l11-7z" />
-//                         </svg> Explore Features
+                                <path d="M8 5v14l11-7z" />
+                            </svg> Explore Features
                         </a>
                     </div>
                 </div>
