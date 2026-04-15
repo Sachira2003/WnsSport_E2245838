@@ -54,7 +54,7 @@ const Features = () => {
     ];
 
     return (
-        <section id="features" className="features-section">
+        <section className="features-section" id="features">
             <div className="features-container">
 
                 {/* Section Header */}
