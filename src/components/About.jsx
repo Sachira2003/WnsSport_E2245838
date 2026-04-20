@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroImg from '../assets/heroimg.jpg';
 import './About.css';
 
 const About = () => {
@@ -12,7 +13,7 @@ const About = () => {
                     <div className="about-image-column reveal-animate">
                         <div className="image-wrapper">
                             <img
-                                src="https://images.unsplash.com/photo-1574629810360-7efbb1925b36?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                src={HeroImg}
                                 alt="Athletes"
                                 className="main-image"
                             />

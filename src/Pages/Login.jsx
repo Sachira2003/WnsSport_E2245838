@@ -90,7 +90,7 @@ const Login = () => {
 
                 {/* Footer Link */}
                 <div className="login-footer">
-                    <a href="/" className="return-link">
+                    <a href="Home" className="return-link">
                         <i className="fa-solid fa-arrow-left"></i> Return to Homepage
                     </a>
                 </div>

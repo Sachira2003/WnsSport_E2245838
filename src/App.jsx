@@ -1,17 +1,20 @@
-import React from 'react';
-import Home from './Pages/Home.jsx';
-import Login from './Pages/Login.jsx';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Login from './pages/Login';
+// import Dashboard from '/pages/Dashboard';       
 
 function App() {
-  return (
-    <>
-      <Home />
-      <Login />
-    </>
-
-  );
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Routes>
+                <Route path="/home" element={<Home />} />
+                <Route path="/login" element={<Login />} />  
+                {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
-
