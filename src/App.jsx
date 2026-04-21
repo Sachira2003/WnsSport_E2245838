@@ -8,13 +8,15 @@ function App() {
     return (
         <BrowserRouter>
             <Navbar />
+            <Home />
             <Routes>
                 <Route path="/home" element={<Home />} />
                 <Route path="/login" element={<Login />} />  
-                {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+                
             </Routes>
+            
         </BrowserRouter>
     );
 }
 
-export default App;
+export default App; 
