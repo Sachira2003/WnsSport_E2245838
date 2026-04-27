@@ -1,5 +1,5 @@
 /* Import the exact fonts from your HTML */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap'); */
 
 :root {
     /* You can easily swap these to your Teal/Green theme if desired! */
@@ -31,7 +31,7 @@
     max-width: 1280px;
     display: flex;
     margin: 0 auto;
-    padding: 1rem 1.5rem;
+    padding: 1rem ;
     justify-content: space-between;
     align-items: center;
 }
@@ -41,6 +41,7 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    margin-left: -9%;
 }
 
 .logo-icon {
@@ -76,6 +77,7 @@
     /* Hidden on mobile by default */
     align-items: center;
     gap: 2rem;
+    margin-right: -9%;
 }
 
 .navbar-desktop-links a {

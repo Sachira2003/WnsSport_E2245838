@@ -1,103 +1,97 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Mail, Lock, LogIn, ArrowLeft } from 'lucide-react';
 import './Login.css';
 
 const Login = () => {
-    const [isAuthenticating, setIsAuthenticating] = useState(false);
-    const [activeRole, setActiveRole] = useState('');
+  const [role, setRole] = useState('admin');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    const simulateLogin = (targetUrl, role) => {
-        setActiveRole(role);
-        setIsAuthenticating(true);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Simulate login redirecting to dashboard
+    navigate('/dashboard');
+  };
 
-        // Save role to localStorage to mock auth state (just like your HTML script)
-        localStorage.setItem('wns_active_role', role);
-
-        // Simulate network delay before redirect
-        setTimeout(() => {
-            // In a real React app, you'd use react-router-dom's useNavigate here
-            // For now, we will simulate the redirect:
-            window.location.href = targetUrl;
-        }, 1800);
-    };
-
-    return (
-        <div className="login-wrapper" id="login">
-            {/* Dark overlay */}
-            <div className="login-overlay"></div>
-
-            {/* Login Container / Glass Panel */}
-            <div className="glass-panel">
-
-                <div className="login-header">
-                    <a href="/" className="login-logo-link">
-                        <div className="login-logo-icon">
-                            <i className="fa-solid fa-trophy"></i>
-                        </div>
-                    </a>
-                    <h1 className="login-title">Access Portal</h1>
-                    <p className="login-subtitle">Select your authorized role to enter the secure dashboard.</p>
-                </div>
-
-                {/* Role Selectors OR Loading State */}
-                {!isAuthenticating ? (
-                    <div className="role-container animate-fade-in">
-
-                        {/* Admin Card */}
-                        <button
-                            onClick={() => simulateLogin('/admin-dashboard', 'Administrator')}
-                            className="role-card group"
-                        >
-                            <div className="role-icon-wrapper theme-admin">
-                                <i className="fa-solid fa-user-shield"></i>
-                            </div>
-                            <h3 className="role-title">Administrator</h3>
-                            <p className="role-desc">Head of Sports, System Config, Overarching Management.</p>
-                        </button>
-
-                        {/* Coach Card */}
-                        <button
-                            onClick={() => simulateLogin('/coach-dashboard', 'Team Coach')}
-                            className="role-card group"
-                        >
-                            <div className="role-icon-wrapper theme-coach">
-                                <i className="fa-solid fa-whistle"></i>
-                            </div>
-                            <h3 className="role-title">Team Coach</h3>
-                            <p className="role-desc">Manage squads, monitor attendance, record match stats.</p>
-                        </button>
-
-                        {/* Player Card */}
-                        <button
-                            onClick={() => simulateLogin('/player-dashboard', 'Student Athlete')}
-                            className="role-card group"
-                        >
-                            <div className="role-icon-wrapper theme-player">
-                                <i className="fa-solid fa-person-running"></i>
-                            </div>
-                            <h3 className="role-title">Student Athlete</h3>
-                            <p className="role-desc">View schedules, check performance, interact with team.</p>
-                        </button>
-
-                    </div>
-                ) : (
-                    /* Simulated Loading State */
-                    <div className="loading-state animate-fade-in">
-                        <span className="loader"></span>
-                        <h3 className="loading-title">Authenticating {activeRole}...</h3>
-                        <p className="loading-subtitle">Connecting to Walasmulla Main System securely</p>
-                    </div>
-                )}
-
-                {/* Footer Link */}
-                <div className="login-footer">
-                    <a href="/" className="return-link">
-                        <i className="fa-solid fa-arrow-left"></i> Return to Homepage
-                    </a>
-                </div>
-
-            </div>
+  return (
+    <div className="login-container">
+      <div className="login-box glass-panel animate-fade-in">
+        <div className="login-header">
+          <h2>Welcome Back</h2>
+          <p>Sign in to your account</p>
         </div>
-    );
+
+        <div className="role-selector">
+          <button 
+            className={`role-btn ${role === 'admin' ? 'active' : ''}`}
+            onClick={() => setRole('admin')}
+            type="button"
+          >
+            Admin
+          </button>
+          <button 
+            className={`role-btn ${role === 'coach' ? 'active' : ''}`}
+            onClick={() => setRole('coach')}
+            type="button"
+          >
+            Coach
+          </button>
+          <button 
+            className={`role-btn ${role === 'player' ? 'active' : ''}`}
+            onClick={() => setRole('player')}
+            type="button"
+          >
+            Student
+          </button>
+        </div>
+
+        <form onSubmit={handleLogin} className="login-form">
+          <div className="input-group">
+            <label>Email Address</label>
+            <div className="input-wrapper">
+              <Mail className="input-icon" size={20} />
+              <input 
+                type="email" 
+                placeholder={`Enter your ${role} email`}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+          
+          <div className="input-group">
+            <label>Password</label>
+            <div className="input-wrapper">
+              <Lock className="input-icon" size={20} />
+              <input 
+                type="password" 
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <div className="forgot-password">
+              <a href="#reset">Forgot Password?</a>
+            </div>
+          </div>
+
+          <button type="submit" className="btn btn-primary login-submit">
+            <LogIn size={20} /> Login as {role.charAt(0).toUpperCase() + role.slice(1)}
+          </button>
+        </form>
+
+        <div className="login-footer">
+          <button className="back-link" onClick={() => navigate('/')}>
+            <ArrowLeft size={16} /> Back to Home
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Login;

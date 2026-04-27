@@ -6,6 +6,7 @@ import Features from "../components/Features";
 import Portals from "../components/Portals";
 import Footer from "../components/Footer";
 
+
 const Home = () => {
     return (
         <>
@@ -15,6 +16,7 @@ const Home = () => {
             <Features />
             <Portals />
             <Footer />
+            
         </>
     )
 }
